@@ -1,0 +1,11 @@
+﻿@using DemoBlazorInsideWeb.BlazorApp.Pages;
+
+<Router AppAssembly="@typeof(App).Assembly">
+    <Found Context="routeData">
+    </Found>
+    <NotFound>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <Index />
+        </LayoutView>
+    </NotFound>
+</Router>

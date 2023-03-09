@@ -1,0 +1,23 @@
+﻿@page "/"
+@using DemoBlazorInsideWeb.BlazorApp.Pages.Components
+
+<PageTitle>This Title is set by Blazor App</PageTitle>
+
+<h2>This is the Blazor App content</h2>
+
+<p>
+    Counter:
+    @(counter)
+</p>
+
+<p>
+    <button class="btn btn-primary" @onclick="@(() => counter++)">Increase Counter</button>
+</p>
+
+<hr />
+
+<DemoComponent />
+
+@code {
+    int counter = 0;
+}

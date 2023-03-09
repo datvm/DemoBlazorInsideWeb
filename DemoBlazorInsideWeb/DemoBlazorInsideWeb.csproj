@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+	  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.3" />
+	  <ProjectReference Include="..\DemoBlazorInsideWeb.BlazorApp\DemoBlazorInsideWeb.BlazorApp.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,0 +1,35 @@
+﻿@inject HttpClient http;
+
+<h3>This is a Blazor Component that uses HttpClient DI</h3>
+
+<p>
+    <button class="btn btn-primary" disabled="@(loading)" @onclick="LoadExampleAsync">
+        Load Example
+
+        @if (loading)
+        {
+            <span class="spinner-border spinner-border-sm"></span>
+        }
+    </button>
+</p>
+
+
+<textarea class="form-control" readonly @bind="value"></textarea>
+
+@code {
+
+    bool loading = false;
+    string value = "";
+
+    async Task LoadExampleAsync()
+    {
+        loading = true;
+        StateHasChanged();
+
+        // Simulate Loading time
+        await Task.Delay(2000);
+        value = await http.GetStringAsync("https://jsonplaceholder.typicode.com/todos/1");
+        loading = false;
+    }
+
+}

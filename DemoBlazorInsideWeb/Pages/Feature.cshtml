@@ -1,0 +1,40 @@
+﻿@page
+
+@{
+    ViewData["Title"] = "This is Title set by ASP.NET";
+}
+
+@section Heads {
+    @* Add some Blazor CSS here *@
+    <link rel="stylesheet" href="~/css/app.css" />
+}
+
+<h1>This is content of ASP.NET Core website</h1>
+
+<p>Some content. The Blazor App should be inside a bordered box below:</p>
+
+<div class="card">
+    <div class="card-body">
+        <div id="app">
+            <svg class="loading-progress">
+                <circle r="40%" cx="50%" cy="50%" />
+                <circle r="40%" cx="50%" cy="50%" />
+            </svg>
+            <div class="loading-progress-text"></div>
+        </div>
+
+        <div id="blazor-error-ui">
+            An unhandled error has occurred.
+            <a href="" class="reload">Reload</a>
+            <a class="dismiss">🗙</a>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<p>
+    This is some more content by ASP.NET Core.
+</p>
+
+<script src="_framework/blazor.webassembly.js"></script>
