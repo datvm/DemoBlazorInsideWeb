@@ -72,17 +72,32 @@ app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
 ```
 
-- In order to debug WASM app, you need to add `inspectUri` property to your `launchSettings.json` file (you should find it in `Properties` folder). Add it to whichever profile you use, `https` and/or `IIS Express`:
+- In order to debug WASM app, you need to:
 
-```json
-{
-    // ...
-    "IIS Express": {
-        // ...
-        "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}"
+  - Add `app.UseWebAssemblyDebugging();` in Development environment:
+
+    ```cs
+    if (!app.Environment.IsDevelopment())
+    {
+        // Usually the template has this block
     }
-}
-```
+    else // And you add this block
+    {
+        app.UseWebAssemblyDebugging();
+    }
+    ```
+
+  - Add `inspectUri` property to your `launchSettings.json` file (you should find it in `Properties` folder). Add it to whichever profile you use, `https` and/or `IIS Express`:
+
+    ```json
+    {
+        // ...
+        "IIS Express": {
+            // ...
+            "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}"
+        }
+    }
+    ```
 
 ## 3. Setup the new web (Feature) page
 
